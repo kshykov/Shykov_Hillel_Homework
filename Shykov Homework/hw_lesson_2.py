@@ -34,3 +34,9 @@ to_be_issued_amount = exchange_amount * currency_rate
 print(f"При обміні {exchange_amount.__round__(2)} по курсу {currency_rate.__round__(2)} ви отримаєте"
       f" {to_be_issued_amount.__round__(2)}"
 )
+
+
+# Alternative Task 3
+currency_rate_a = 36.5686
+calculate_amount = float(input("Введіть сумму для обміну")) * currency_rate_a
+print(f"Поточний курс складає: {calculate_amount.__round__(2)}")
