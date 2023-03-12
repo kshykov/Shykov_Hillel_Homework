@@ -1,4 +1,3 @@
-
 """
 1.Користувач вводить сторони опуклого чотирикутника.
 
@@ -16,35 +15,43 @@ print("Введіть сторони позначені на схемі"
       "\n|‾‾‾‾‾‾‾‾‾‾‾‾‾A‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|\n"
       "|                              |\n"
       "|                              |\n"
-      "B                              |\n"
+      "B                              D\n"
       "|                              |\n"
       "|                              |\n"
-      "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
+      "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾C‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
 
 side_a = float(input("Enter Side A: "))
 side_b = float(input("Enter Side B: "))
+side_c = float(input("Enter Side C: "))
+side_d = float(input("Enter Side D: "))
 
-
-def DefineFigureType(side_a, side_b):
-    if side_a != side_b:
+def DefineFigureType(side_a, side_b, side_c, side_d):
+    if side_a**2 + side_b**2 == side_c**2 + side_d**2 and side_a == side_c and side_b == side_d:
         return True
-    # Якщо попередня умова не виконується, то вважаємо що сторони рівні і фігура є квадратом
     else:
         return False
 
 
+def IsSquare(side_a, side_b, side_c, side_d):
+    if side_a == side_b == side_c == side_d:
+        return True
+    else:
+        return False
+
 def CalcRectangleArea(side_a, side_b):
-    if DefineFigureType(side_a, side_b):
         return side_a * side_b
 
 
 def UserOutput():
-    if  DefineFigureType(side_a, side_b):
-        print(f'Площа вашого прямокутника = {CalcRectangleArea(side_a, side_b)}')
+    if IsSquare(side_a, side_b, side_c, side_d):
+        print("Це квадрат")
+    elif DefineFigureType(side_a, side_b, side_c, side_d):
+        print("Це прямокутник")
+        print("Площа дорівнює", CalcRectangleArea(side_a, side_b))
     else:
-        print(f'Неможливо знайти площу прямокутника так як ви ввели квадрат')
+        print("Це не квадрат і не прямокутник")
 
-
+UserOutput()
 
 
 
