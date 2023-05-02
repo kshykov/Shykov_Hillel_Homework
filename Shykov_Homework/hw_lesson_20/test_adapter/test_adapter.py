@@ -43,4 +43,3 @@ class TestJSONToCsv:
             rows_after = len(rows)
 
         assert rows_after < rows_before
-        print()
